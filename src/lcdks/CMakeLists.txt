@@ -5,4 +5,4 @@ upm_mixed_module_init (NAME lcdks
     CPP_HDR lcdks.hpp
     CPP_SRC lcdks.cxx
     CPP_WRAPS_C
-    REQUIRES mraa lcm1602)
+    REQUIRES mraa lcm1602-c)
