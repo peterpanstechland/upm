@@ -14,6 +14,13 @@ option (NPM "Generate NPM/GYP tarballs" OFF)
 option (BUILDTESTS "Generate check-ups for upm" OFF)
 option (WERROR "Make all warnings into errors." ON)
 
+#Utilising PTHREAD
+set(THREADS_PREFER_PTHREAD_FLAG ON)
+set(CMAKE_LINKER_FLAGS "-pthread" CACHE STRING "Linker Flags" FORCE)
+set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_LINKER_FLAGS}" CACHE STRING "" FORCE)
+set(CMAKE_MODULE_LINKER_FLAGS "${CMAKE_LINKER_FLAGS}" CACHE STRING "" FORCE)
+set(CMAKE_EXE_LINKER_FLAGS    "${CMAKE_LINKER_FLAGS}" CACHE STRING "" FORCE)
+
 # Warn if building in source root
 if ("${CMAKE_SOURCE_DIR}" STREQUAL "${CMAKE_BINARY_DIR}")
   message (WARNING "Building into sources dir can be risky, prefer other directory")
@@ -108,6 +115,7 @@ endif (WERROR)
 # Set C compiler warning flags at top-level scope and emit a warning about
 # unsupported flags
 upm_add_compile_flags(C ${C_CXX_WARNING_FLAGS}
+  -pthread
   -Winit-self
   -Wimplicit
   -Wsign-compare
@@ -116,6 +124,7 @@ upm_add_compile_flags(C ${C_CXX_WARNING_FLAGS}
 # Set CXX compiler warning flags at top-level scope and emit a warning about
 # unsupported flags
 upm_add_compile_flags(CXX ${C_CXX_WARNING_FLAGS}
+  -pthread
   -Wnon-virtual-dtor
   -Woverloaded-virtual
   -Wsign-compare
