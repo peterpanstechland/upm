@@ -397,19 +397,19 @@ function(upm_swig_python)
   # Skip if the libname is in the blacklist
   if (NOT ";${PYTHONSWIG_BLACKLIST};" MATCHES ";${libname};")
     # Generate python2 module if python2 libs are available
-    if (PYTHON2LIBS_FOUND)
-      set(PYTHON_INCLUDE_DIRS ${PYTHON2_INCLUDE_DIRS})
-      set(PYTHON_INCLUDE_PATH ${PYTHON2_INCLUDE_PATH})
-      set(PYTHON_LIBRARIES ${PYTHON2_LIBRARIES})
-      set(PYTHON_VERSION_MAJOR ${PYTHON2_VERSION_MAJOR})
-      set(PYTHON_VERSION_MINOR ${PYTHON2_VERSION_MINOR})
-      set(PYTHON_PACKAGES_PATH ${PYTHON2_PACKAGES_PATH})
-      _upm_swig_python()
+#    if (PYTHON2LIBS_FOUND)
+#      set(PYTHON_INCLUDE_DIRS ${PYTHON2_INCLUDE_DIRS})
+#      set(PYTHON_INCLUDE_PATH ${PYTHON2_INCLUDE_PATH})
+#      set(PYTHON_LIBRARIES ${PYTHON2_LIBRARIES})
+#      set(PYTHON_VERSION_MAJOR ${PYTHON2_VERSION_MAJOR})
+#      set(PYTHON_VERSION_MINOR ${PYTHON2_VERSION_MINOR})
+#      set(PYTHON_PACKAGES_PATH ${PYTHON2_PACKAGES_PATH})
+#      _upm_swig_python()
 
       # Keep track of all Python2 targets
-      set(UPM_TARGETS_PYTHON2 ${UPM_TARGETS_PYTHON2} ${python_wrapper_target}
-          CACHE INTERNAL "List of Python target names")
-    endif (PYTHON2LIBS_FOUND)
+#      set(UPM_TARGETS_PYTHON2 ${UPM_TARGETS_PYTHON2} ${python_wrapper_target}
+#          CACHE INTERNAL "List of Python target names")
+#    endif (PYTHON2LIBS_FOUND)
 
     # Generate python3 module if python3 libs are available
     if (PYTHON3LIBS_FOUND)
