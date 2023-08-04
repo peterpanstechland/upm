@@ -8,7 +8,7 @@ if (MRAA_OW_FOUND)
         FTI_SRC dfrec_fti.c
         IFACE_HDR iEC.hpp
         CPP_WRAPS_C
-        REQUIRES ds18b20 mraa utilities-c)
+        REQUIRES ds18b20-c mraa utilities-c)
     # make sure the C library has the appropriate dependency on the UPM
     # DS18B20 C library
     target_link_libraries(${libnamec} ds18b20-c)
